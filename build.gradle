@@ -1,17 +1,13 @@
-apply plugin: 'java'
-apply plugin: 'maven-publish'
-
-//plugins {
- //   id 'java'
- //   id 'war'
-   // id 'org.springframework.boot' version '3.0.4'
-   // id 'io.spring.dependency-management' version '1.1.0'
-//}
+plugins {
+    id 'java'
+    id 'war'
+    id 'org.springframework.boot' version '3.0.4'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
 
 group = 'com.ccs'
 version = '0.0.8-SNAPSHOT'
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = '17'
 
 configurations {
     compileOnly {
@@ -24,24 +20,19 @@ repositories {
 }
 
 dependencies {
-//    implementation 'org.springframework.boot:spring-boot-starter-web'
-//    implementation 'org.springframework.boot:spring-boot-starter-mail'
-//    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
 
-//    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 
-//    compileOnly 'org.projectlombok:lombok'
-//    annotationProcessor 'org.projectlombok:lombok'
-//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
- //   testImplementation 'org.mockito:mockito-core:5.1.1'
- //   testImplementation 'org.springframework.security:spring-security-test'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.mockito:mockito-core:5.1.1'
+    testImplementation 'org.springframework.security:spring-security-test'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
-}
-
-wrapper {
-    gradleVersion = "7.6.1"
-    distributionType = Wrapper.DistributionType.ALL
 }
