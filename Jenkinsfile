@@ -1,13 +1,11 @@
 pipeline {
-  // Assign to docker agent(s) label, could also be 'any'
+  // "Top-level" agent is assigned to docker agents via Jenkins pipeline configuration
   agent none
 
   stages {
     stage('Docker node test') {
       agent {
         docker {
-          // Set both label and image
-          label 'docker'
           image 'node:7-alpine'
           args '--name docker-node' // list any args
         }
@@ -17,12 +15,10 @@ pipeline {
         sh 'node --version'
       }
     }
-
+    
     stage('Docker maven test') {
       agent {
         docker {
-          // Set both label and image
-          label 'docker'
           image 'maven:3-alpine'
         }
       }
@@ -32,4 +28,4 @@ pipeline {
       }
     }
   }
-} 
+}
